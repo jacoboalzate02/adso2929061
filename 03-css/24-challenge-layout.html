@@ -21,9 +21,9 @@
         div.logo {
             background: url(images/spriteweb.png) no-repeat;
             background-position: -10px -400px;
-            height: 190px;
+            height: 180px;
             margin: 0 auto;
-            width: 190px;
+            width: 180px;
         }
 
         menu {
@@ -36,30 +36,29 @@
 
         menu a {
             background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 120px;
+            color: white;
             text-decoration: none;
             border-bottom: 7px white solid;
             text-transform: uppercase;
+            padding: 1rem;
+            width: 120px;
         }
 
         menu a:hover {
-            background-color: rgb(3, 3, 3, 0.692);
-            border-bottom: 7px solid rgb(197, 197, 78);
+            background-color: black;
+            border-bottom: 7px solid yellow;
         }
-
         div.images {
             align-items: center;
             display: flex;
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px;
             margin: 0 auto;
             width: 900px;
-            padding: 10px;
         }
 
         div.sprites {
@@ -69,7 +68,7 @@
             justify-content: center;
             margin: 10px;
             height: 200px;
-            width: 328px;
+            width: 380px;
             border: 2px solid white;
         }
 
@@ -96,7 +95,7 @@
             gap: 10px;
         }
 
-        div.info {
+        div.information {
             background-color: white;
             display: flex;
             gap: 35px;
@@ -117,10 +116,6 @@
             line-height: 1.5em;
         }
 
-        div p:hover {
-            color: #17a053;
-        }
-
         div aside.first {
             background-position: -282px -499px;
             height: 95px;
@@ -135,7 +130,7 @@
 
         footer {
             width: 915px;
-            background-color: white;
+            background-color: #17b053;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -149,7 +144,7 @@
 
         div.footer {
             background: url(images/spriteweb.png) no-repeat;
-            background-position: -500px -420px;
+            background-position: -510px -420px;
             height: 180px;
             width: 245px;
         }
@@ -158,12 +153,12 @@
             align-items: center;
             display: flex;
             justify-content: center;
-            gap: 3.5rem;
+            gap: 3rem;
         }
 
         div.link a {
             text-decoration: none;
-            color: black;
+            color: rgb(248, 245, 245);
             font-size: medium;
             text-transform: uppercase;
             display: flex;
@@ -171,12 +166,11 @@
             align-items: center;
             width: 120px;
             padding-bottom: 10px;
-            border-bottom: 7px solid white
         }
 
-        div.link a:hover {
-            border-bottom: 7px solid #11743c;
-        }
+            div.link a:hover {
+                border-bottom: 7px solid yellow;
+            }
     </style>
 </head>
 
@@ -184,28 +178,28 @@
     <main>
         <div class="logo"></div>
         <menu>
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Portafolio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contacto</a>
+            <a href="#">Home</a>
+            <a href="#">Us</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </menu>
         <section>
             <div class="images">
                 <div class="sprites">
-                    <figcaption>Sprite 01</figcaption>
+                    <figcaption>Sprite 1</figcaption>
                 </div>
                 <div class="sprites">
-                    <figcaption>Sprite 02</figcaption>
+                    <figcaption>Sprite 2</figcaption>
                 </div>
                 <div class="sprites">
-                    <figcaption>Sprite 03</figcaption>
+                    <figcaption>Sprite 3</figcaption>
                 </div>
             </div>
         </section>
         <br />
         <section class="first">
-            <div class="info">
+            <div class="information">
                 <aside class="first"></aside>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum fugit aliquam impedit magnam quod,
                     maxime deserunt cupiditate ratione ea saepe odit quasi culpa quam dolor voluptatibus reprehenderit
@@ -215,7 +209,7 @@
                 </p>
                 <aside class="second"></aside>
             </div>
-            <div class="info">
+            <div class="information">
                 <aside class="first"></aside>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum fugit aliquam impedit magnam quod,
@@ -226,7 +220,7 @@
                 </p>
                 <aside class="second"></aside>
             </div>
-            <div class="info">
+            <div class="information">
                 <aside class="first"></aside>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum fugit aliquam impedit magnam quod,
@@ -242,11 +236,11 @@
         <footer>
             <div class="footer"></div>
             <div class="link">
-                <a href="#">Inicio</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Portafolio</a>
-                <a href="#">Servicios</a>
-                <a href="#">Contacto</a>
+                <a href="#">Home</a>
+                <a href="#">Us</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
             </div>
         </footer>
     </main>
