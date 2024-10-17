@@ -1,0 +1,217 @@
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39 - challenge-responsive </title>
+<style>
+        * {
+            transition: all 0.2s ease-in;
+        }
+
+        body {
+            background-color: #7a5f5f;
+            font-family: sans-serif;
+            background: transparent url(images/camp-nou.jpg) no-repeat center /cover fixed ;
+        }
+
+        main {
+            background-color: #841138;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        main div {
+            background: url(images/messi.jpg);
+            background-repeat: no-repeat;
+            height: 200px;
+            width: 200px;
+        }
+
+        main div img {
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+        }
+
+        div.messi {
+        background: url(images/messi.jpg) no-repeat center /cover;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        }
+
+        h4.messi {
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 1.5rem;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        width: 168px;
+        transition: all 0.4s ease-in
+        }
+        
+        div:hover h4 {
+        transform: translateY(-5px);
+}
+        div.suarez {
+        background: url(images/suarez.jpg) no-repeat center /cover;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        }
+
+        h4.suarez {
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 1.5rem;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        width: 168px;
+        transition: all 0.4s ease-in
+        }
+
+        div.neymar {
+        background: url(images/neymar.jpg) no-repeat center /cover;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        }
+
+        h4.neymar {
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 1.5rem;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        width: 168px;
+        transition: all 0.4s ease-in
+        }
+
+        div.iniesta {
+        background: url(images/iniesta.jpg) no-repeat center /cover;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        }
+
+        h4.iniesta {
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 1.5rem;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        width: 168px;
+        transition: all 0.4s ease-in
+        }
+
+        article {
+            background-color: #013378;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        @media (max-width: 860px) {
+            main {
+                width: 500px;
+            }
+
+            article {
+                width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                width: 400px;
+            }
+
+            article {
+                flex-direction: column;
+                width: 400px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body class="html">
+    <header>
+    </header>
+    <section>
+        <main>
+            <div class="messi">
+                <h4 class="messi">Lionel Messi</h4>
+              </div>
+            
+              <div class="suarez">
+                <h4 class="suarez">Luis Suarez</h4>
+              </div>
+
+              <div class="neymar">
+                <h4 class="neymar">Neymar Jr</h4>
+              </div>
+
+              <div class="iniesta">
+                <h4 class="iniesta">Andres Iniesta</h4>
+              </div>
+        </main>
+        <article>
+            <div class="img1">
+                <img src="images/barca.png"
+                    alt="">
+            </div>
+            <div class="txt">
+                <h2>Biografía</h2>
+                <p>El Fútbol Club Barcelona, conocido popularmente como Barça, es una entidad polideportiva con sede en Barcelona (Cataluña, España).</p>
+                <p>El Fútbol Club Barcelona fue fundado el 29 de noviembre de 1899 por un grupo de doce aficionados al fútbol, convocados por el suizo Hans Gamper mediante un anuncio publicado en la revista Los Deportes el 22 de octubre del mismo año. Entre los doce fundadores del club había seis españoles, tres suizos, dos ingleses y un alemán. El nombre original escogido fue «Foot-ball Club Barcelona», en inglés, y se designó al suizo Walter Wild como primer presidente del club por ser la persona de más edad de entre las presentes.</p>
+            </div>
+        </article>
+       
+        <article>
+            <div class="img2">
+                <img src="images/msn.jpg"
+                    alt="">
+            </div>
+            <div class="txt">
+                <h2>La MSN</h2>
+                <p>La MSN (Messi - Suárez - Neymar)  El trio formado por el argentino, el uruguayo y el brasileño se mantuvo en el FC Barcelona durante tres temporadas. Desde la 2014-15 hasta la 2016-17. Los tres integrantes de la 'MSN' sumaron un total de 364 goles y 211 asistencias en los tres años que coincidieron en el Barça. </p>
+            </div>
+        </article>
+
+        <article>
+            <div class="img3">
+                <img src="images/museo.jpg"
+                    alt="">
+            </div>
+            <div class="txt">
+                <h2>Historia</h2>
+                <p>El FC Barcelona, es uno de los clubes más emblemáticos del fútbol mundial, conocido por su estilo de juego y su rica historia. A lo largo de los años, ha cosechado numerosos títulos, destacando 26 en La Liga, 31 en la Copa del Rey y 14 en la Supercopa de España a nivel nacional. En el ámbito internacional, ha logrado 5 títulos en la Liga de Campeones de la UEFA, 3 en la Supercopa de la UEFA y 3 en la Copa Mundial de Clubes. Su intensa rivalidad con el Real Madrid, conocida como "El Clásico", añade a su legado en el deporte.</p>
+
+            </div>
+        </article>
+    </section>
+
+
+</body>
+
+</html>
