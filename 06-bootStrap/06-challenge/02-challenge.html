@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Portfolio</title>
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        nav.navbar.bg-custom,
+a.btn.bg-custom {
+  color: #121212;
+  background-color: #3204FF;
+}
+div.row.hero {
+  div.col:nth-child(1) {
+    background-color: #FF0000;
+    height: 680px;
+  }
+  div.col:nth-child(2) {
+    background: #0004FF url(/06-bootStrap/images/raphinha.png) no-repeat center;
+    height: 680px;
+  }
+}
+
+div.row.about {
+  div.col:nth-child(2) {
+    background-color: #FF0000;
+    height: 680px;
+  }
+  div.col:nth-child(1) {
+    background: #FBEC3B url(/06-bootStrap/images/raphina1.png) no-repeat center;
+    height: 680px;
+  }
+}
+
+
+
+    
+
+        
+
+
+
+div.row.services {
+    background-color: #0004FF;
+    padding: 20px;
+
+    div.tittle.row {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    }
+
+    div.col {
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        div.card {
+            img {
+                margin-top: 25px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+}
+
+div.row.portafolio {
+    background-color: #FF0000;
+
+    div.tittle.row {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    div.card {
+
+        img {
+            margin-top: 25px;
+        }
+    }
+}
+
+div.row.footer{
+    background-color: #48B3FF;
+    div.nombre {
+        margin-top: 50px;
+        width: 100%;
+        justify-content: center;
+        color: #29574E;
+        h2{
+            margin-top: 20px;
+            margin-left: 20px;
+            color: white;
+        }
+    }
+    div.redes {
+        margin-top: 50px;
+        width: 100%;
+        justify-content: center;
+        color: #29574E;
+
+        div.img{
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+    }
+    div.correo {
+        margin-top: 50px;
+        width: 100%;
+        justify-content: center;
+        color: #29574E;
+        h3{
+            margin-top: 20px;
+            margin-left: 20px;
+            color: white;
+        }
+    }
+}
+div.nombre {
+    width: 400px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 01 nav-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4" href="#">
+                <img src="/06-bootStrap/images/person-circle.svg" alt="" width="60px">
+                Raphinha
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Portfolio</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <main class="contrast-fluid">
+        <!-- 02 hero-->
+         <div class="hero row row-cols-md-2 row-cols-1">
+            <div class="col d-flex flex-column justify-content-center align-items-start px-5">
+                <h3 class="fs-3">Hello I am</h3>
+                <h2 class="fs-1 fw-bold text-">Raphinha Belloli</h2>
+                <p class="text-white ">I am 28 years old, i am from Brazil, i play in FC Barcelona, actually i am one of the best players in the world, i have played in many clubs in Europe, like Stade rennes, Leeds and Sporting Lisboa, now i am one of the most important players in FC Barcelona.</p>
+                <p class="text-justify"></p>
+                <a href="javaxcrip:;" class="btn bg-custom p-2 px-3 fw-bold">Hire me</a>
+            </div>
+            <div class="col">
+                
+            </div>
+         </div>
+    </main>
+
+    <div class="about row row-cols-md-2 row-cols-1">
+        <div class="col d-flex flex-column justify-content-center align-items-start px-5">
+            
+        </div>
+        <div class="col d-flex flex-column text-white justify-content-center align-items-start px-5">
+            <p class="col d-flex flex-column text-white justify-content-center align-items-start px-5">Two of my best matches in my career were vs PSG and Bayern Munchen in champions league edition, the first one i scored three goals in the quarter final eliminatory, two in the one leg and one in the second leg. Sadly, we ended up losing but my performance was incredible and unbeliavable.
+
+                In the second one vs Bayern Munchen i scored three goals (hat trick) in only one match, being a monster for the bayern munchen defensors, the performance was incredible too and is my best performance in my career </p>
+        </div>
+     </div>
+
+      <!--04 Services-->
+      <div class="services row row-cols-md-2 row-cols-1 row-cols-lg-3">
+        <div class="tittle row">
+            <h1>Services</h1>
+            <h2>Service|Provide</h2>
+        </div>
+        <!-- Card 1-->
+        <div class="col d-flex ">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/emoji-grin (1).svg" class="card-img-top " alt="...">
+                <div class="card-body ">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2-->
+        <div class="col d-flex">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/spotify (1).svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3-->
+        <div class="col d-flex">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/globe (1).svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 4-->
+        <div class="col d-flex">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/emoji-grin (1).svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 5-->
+        <div class="col d-flex">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/spotify (1).svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 6-->
+        <div class="col d-flex">
+            <div class="card bg-primary" style="width: 18rem;">
+                <img src="/06-bootStrap/images/globe (1).svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto rerum
+                        pariatur reiciendis similique, eaque officia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--05 Portafolio-->
+    <div class="portafolio row row-cols-md-2 row-cols-1 row-cols-lg-3" id="portfolio">
+        <div class="tittle row">
+            <h1>Portfolio</h1>
+            <h3>Nou Camp Nou</h3>
+        </div>
+
+        <!--Proyecto 1-->
+        <div class="col">
+            <div class="card mb-3">
+                <img src="/06-bootStrap/images/campnou1.png" alt="">
+            </div>
+        </div>
+
+        <!--Proyecto 2-->
+        <div class="col">
+            <div class="card mb-3">
+                <img src="/06-bootStrap/images/campnou2.png" alt="">
+            </div>
+        </div>
+
+        <!--Proyecto 3-->
+        <div class="col">
+            <div class="card mb-3">
+                <img src="/06-bootStrap/images/campnou3.png" alt="">
+            </div>
+        </div>
+    </div>
+
+ <!--06 footer-->
+ <div class="footer row row-cols-md-2 row-cols-1 row-cols-lg-3">
+    <div class="nombre col col-span-3 d-flex ">
+        <img src="/06-bootStrap/images/person-circle.svg" alt="icon" width="55px">
+    
+
+        <h2 class="text-black">Raphinha Dias Belloli</h2>
+
+    </div>
+    <div class="redes col col-span-3 d-flex">
+        <div class="img d-flex">
+            <img src="/06-bootStrap/images/instagram (1).svg" alt="icon">
+        </div>
+        <div class="img d-flex">
+            <img src="/06-bootStrap/images/twitter-x (1).svg" alt="icon">
+        </div>
+        <div class="img d-flex">
+            <img src="/06-bootStrap/images/tiktok (1).svg" alt="icon">
+        </div>
+        <div class="img d-flex"> 
+            <img src="/06-bootStrap/images/pinterest (1).svg" alt="icon">
+        </div>
+
+    </div>
+    <div class="correo col col-span-3 d-flex">
+
+        <h3>
+            raphinhabelloli@gmail.com
+        </h3>
+    </div>
+</div>   
+
+</main>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
