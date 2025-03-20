@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 - Challenge</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-[#1e1e1e]">
+  <main class="min-h-[100dvh]
+               flex 
+               justify-center 
+               items-center">
+    <!-- Screen 01 - Welcome -->
+    <section id="welcome" class="welcome 
+                      w-[386px] 
+                      h-[760px]
+                      my-4
+                      rounded-[0px]
+                      overflow-hidden
+                      bg-[url(../images/barca.png)]
+                      bg-[black]
+                      relative
+                      bg-top
+                      bg-no-repeat">
+      
+      <div class="  absolute
+      mt-[23.8rem]
+                      w-[100%]
+                      h-[50%]
+                      bg-[url(../images/bg1.png)]">
+        <figure class="logo
+                      h-[136px]
+                      w-[161px]
+                      mx-auto
+                      mt-[-60px]
+                      bg-[url(../images/barcalogo.svg)]
+                      bg-no-repeat">
+        </figure>
+
+        <h2 class="text-center
+                    text-[32px]
+                    font-[500]
+                    mt-[38px]
+                    text-[white]">Benvingut Culer!
+        </h2>
+
+        <div class="actions
+                  w-[320px]
+                  flex
+                  mt-[42px]
+                  mx-[auto]">
+          <a href="#signin" class="w-[160px]
+                                    h-[55px]
+                                    flex
+                                    justify-center
+                                    items-center
+                                    text-black-500
+                                    rounded-s-[80px]
+                                    bg-[red]">Sign in <a>
+
+              <a href="#signup" class="w-[160px]
+                  h-[55px]
+                  flex
+                  justify-center
+                  items-center
+                  text-white
+                  rounded-e-[80px]
+                  bg-[blue]">Sign up </a>
+        </div>
+
+
+      </div>
+      <!--<div class="absolute
+                      rounded-t-[30px]
+                      bottom-0
+                      w-full
+                      h-[396px]
+                      bg-red-600">
+
+             
+      </section>-->
+      <!-- Screen 02 - Signin -->
+      <section id="signin" class="signin 
+                                  w-[391px] 
+                                  h-[760px]
+                                  transition-all
+                                  ease-in
+                                  duration-500
+                                  translate-x-[-300%]
+                                  target:translate-x-[0px]
+                                  my-4
+                                  rounded-[20px]
+                                  overflow-hidden
+                                  bg-[url(../images/barca2.png)]
+                                  bg-black
+                                 
+                                  absolute
+                                  bg-top
+                                  bg-no-repeat">
+        <figure class="logo
+                         h-[114px]
+                         w-[91px]
+                         mx-auto
+                         mt-[18px]
+                         bg-[url(images/top-logo.svg)]">
+        </figure>
+        <a href="#welcome" class="absolute 
+                                     left-[20px]
+                                     hover:translate-x-[-6px]
+                                     transition-all
+                                     top-[20px]">
+          <img src="images/ico-back.svg" alt="⚽">
+
+        </a>
+        <h2 class="text-[32px]
+                     mt-[15rem]
+                     text-center
+                   text-[#fff]
+                     font-[500]">Sign In</h2>
+
+        <form action="" class="mt-10
+                               flex 
+                               justify-center
+                               items-center
+                               flex-col 
+                               gap-2">
+          <label class="flex 
+                        gap-1 
+                      text-[#fff]
+                        text-[16px]
+                        font-[500]
+                        w-[320px]
+                        items-center">
+
+            Email:
+          </label>
+          <input class="border-[2px]
+                      border-[#fff]
+                      text-[#fff]
+                        w-[320px]
+                        outline-none
+                        indent-4
+                        h-[55px]
+                        rounded-[25px]" type="text" placeholder="elshaarawy@gmail.com">
+          <label class="flex 
+                        gap-1 
+                      text-[#fff]
+                        text-[16px]
+                        font-[500]
+                        w-[320px]
+                        items-center">
+
+            Password:
+          </label>
+          <input class="border-[2px]
+                      border-[#fff]
+                      text-[#fff]
+                        w-[320px]
+                        outline-none
+                        indent-4
+                        h-[55px]
+                        rounded-[25px]" type="password" placeholder="**">
+          <button class="w-[320px]
+                         mt-[10px]
+                         cursor-pointer
+                         transition-all
+                         hover:scale-[1.05]
+                       text-white
+                         rounded-[25px]
+                         text-[16px]
+                         font-[500]
+                         h-[55px]
+                       bg-[#9B1919]">
+            Sign In
+          </button>
+        </form>
+
+      </section>
+      <!-- Screen 03 - Signup -->
+      < <section id="signup" class="signup
+      w-[386px] 
+      h-[720px]
+      transition-all
+      ease-in
+      duration-500
+      translate-x-[-300%]
+      target:translate-x-[0px]
+      my-4
+      rounded-[20px]
+      overflow-hidden
+      bg-[url(images/black.png)]
+    bg-[black]
+      absolute
+      bg-top
+      bg-no-repeat">
+        <figure class="logo
+h-[114px]
+w-[91px]
+mx-auto
+mt-[18px]
+bg-[url(images/top-logo.svg)]">
+        </figure>
+        <a href="#welcome" class="absolute 
+         left-[20px]
+         hover:translate-x-[-6px]
+         transition-all
+         top-[20px]">
+          <img src="images/ico-back.svg" alt="Back Welcome">
+        </a>
+        <h2 class="text-[32px]
+mt-[9rem]
+text-center
+text-[#fff]
+font-[500]">Sign Up</h2>
+        <h3 class="text-[16px]
+text-center
+text-[#fff]
+font-[400]">
+          <form action="#welcome" class="mt-10
+flex 
+justify-center
+items-center
+flex-col 
+gap-2">
+            <label class="flex 
+gap-1 
+text-[#fff]
+text-[16px]
+font-[500]
+w-[320px]
+items-center">
+              <img src="images/ico-email.svg" alt="Email">
+              Email:
+            </label>
+            <input class="border-[2px]
+border-[#fff]
+text-[#fff]
+w-[320px]
+outline-none
+indent-4
+h-[55px]
+rounded-[25px]" type="text" placeholder="balotelli@gmail.com" required>
+            <label class="flex 
+gap-1 
+text-[#fff]
+text-[16px]
+font-[500]
+w-[320px]
+items-center">
+              <img src="images/ico-number.svg" alt="Email">
+              Mobile Number:
+            </label>
+            <input class="border-[2px]
+border-[#fff]
+text-[#fff]
+w-[320px]
+outline-none
+indent-4
+h-[55px]
+rounded-[25px]" type="text" placeholder="310325369" required>
+            <label class="flex 
+gap-1 
+text-[#fff]
+text-[16px]
+font-[500]
+w-[320px]
+items-center">
+              <img src="images/ico-password.svg" alt="Password">
+              Password:
+            </label>
+            <input class="border-[2px]
+border-[#fff]
+text-[#fff]
+w-[320px]
+outline-none
+indent-4
+h-[55px]
+rounded-[25px]" type="password" placeholder="*****" required>
+            <button class="w-[320px]
+mt-[10px]
+cursor-pointer
+transition-all
+hover:scale-[1.05]
+text-white
+rounded-[25px]
+text-[16px]
+font-[500]
+h-[55px]
+bg-[#9B1919]">
+              Sign Up
+            </button>
+          </form>
+    </section>
+  </main>
+  <script src="/07-tailwind/js/tailwind.js"></script>
+</body>
+
+</html>
