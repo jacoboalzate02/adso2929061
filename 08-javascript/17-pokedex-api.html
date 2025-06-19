@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>18 - Pokedex</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    select.pk-generation {
+      appearance: none;
+      padding: 0.4rem 0.8rem;
+      display: flex;
+      margin: 1rem auto;
+    }
+
+    ul.pokemons {
+      border-radius: 10px;
+      list-style: none;
+      width: 95%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      overflow-y: scroll;
+      scrollbar-color: #F96E2A transparent;
+      scrollbar-width: thin;
+    }
+
+    ul.pokemons li {
+      border: 2px solid #fff;
+      border-radius: 0.4rem;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    ul.pokemons li h4,
+    ul.pokemons li h5 {
+      margin: 0;
+      color: white;
+    }
+
+    ul.pokemons.hide {
+      display: none;
+    }
+
+    img.loader {
+      display: flex;
+      margin: 8rem auto;
+      width: 160px;
+    }
+
+    img.loader.hide {
+      display: none;
+    }
+
+    .pokedex {
+      background-color: #FF1111;
+      display: flex;
+      flex-direction: column;
+      width: 360px;
+      height: 760px;
+      top: 50px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+      pointer-events: all;
+      position: absolute;
+    }
+
+    .pokedex.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .pokedex h1 {
+      margin-top: 20px;
+      color: black;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .pokedex img {
+      width: 100%;
+    }
+
+    button#btn-pokemons {
+      width: 340px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      background-color: #0473BB;
+      margin-top: 70px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button#btn-pokemons h5 {
+      color: black;
+      margin: 0;
+      font-size: 25px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .tarjeta-contenido {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      padding: 1rem;
+    }
+
+    .tarjeta-contenido img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .tarjeta-contenido h2, .tarjeta-contenido p {
+      margin: 0.5rem 0;
+    }
+
+    .btn-volver {
+      margin-top: 20px;
+      background-color: #0473BB;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="js">
+  <nav>
+    <a href="index.html">
+      <!-- Icono de casa -->
+    </a>
+  </nav>
+
+  <main>
+    <header>
+      <h1>18 - Pokedex</h1>
+      <h2>Obtén y muestra datos de la API de Pokedex</h2>
+    </header>
+
+    <!-- PANTALLA 1 -->
+    <div id="inicio" class="pokedex">
+      <h1 class="titulo">Pokedex</h1>
+      <img src="/08-javascript/images/logo.svg" alt="" />
+      <button id="btn-pokemons">
+        <h5>pokemons</h5>
+      </button>
+    </div>
+
+    <!-- PANTALLA 2 -->
+    <div class="pokedex hide" id="lista">
+      <h1 class="titulo"></h1>
+      <select class="pk-generation"></select>
+      <img class="loader" src="/imagen/pokemon97.gif" alt=""/>
+      <ul class="pokemons"></ul>
+    </div>
+
+    <!-- PANTALLA 3 -->
+    <div id="tarjeta" class="pokedex hide">
+      <div class="tarjeta-contenido">
+        <h2 id="pk-nombre"></h2>
+        <img id="pk-img" src="" alt="">
+        <p><strong>ID:</strong> <span id="pk-id"></span></p>
+        <p><strong>Tipo:</strong> <span id="pk-tipos"></span></p>
+        <p><strong>Altura:</strong> <span id="pk-altura"></span> m</p>
+        <p><strong>Peso:</strong> <span id="pk-peso"></span> kg</p>
+        <button class="btn-volver" id="volver-lista">Volver</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const types = {
+      normal: "#a8a77a", fire: "#ee8130", water: "#6390f0", electric: "#f7d02c",
+      grass: "#7ac74c", ice: "#96d9d6", fighting: "#c22e28", poison: "#a33ea1",
+      ground: "#e2bf65", flying: "#a98ff3", psychic: "#f95587", bug: "#a6b91a",
+      rock: "#b6a136", ghost: "#735797", dragon: "#6f35fc", dark: "#705746",
+      steel: "#b7b7ce", fairy: "#d685ad", shadow: "#5a5a5a", unknown: "#68a090"
+    };
+
+    const generations = {
+      range: [
+        { from: 1, to: 151 }, { from: 152, to: 251 }, { from: 252, to: 386 },
+        { from: 387, to: 493 }, { from: 494, to: 649 }, { from: 650, to: 721 },
+        { from: 722, to: 809 }, { from: 810, to: 890 }, { from: 891, to: 1025 }
+      ]
+    };
+
+    const pkGeneration = document.querySelector('.pk-generation');
+    const pokemons = document.querySelector('.pokemons');
+    const loader = document.querySelector('.loader');
+
+    pkGeneration.innerHTML = `<option value="">Select a generation...</option>`;
+    generations['range'].forEach((element, index) => {
+      pkGeneration.innerHTML += `<option value="${index}">Generation ${++index}</option>`;
+    });
+
+    pkGeneration.addEventListener('change', function () {
+      if (this.value != "") {
+        loadPokemon(generations.range[this.value].from, generations.range[this.value].to);
+      }
+    });
+
+    const loadPokemon = async (start, end) => {
+      pokemons.classList.add('hide');
+      loader.classList.remove('hide');
+      pokemons.innerHTML = "";
+      setTimeout(() => {
+        loader.classList.add('hide');
+        pokemons.classList.remove('hide');
+      }, 1000);
+      for (let pk = start; pk <= end; pk++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${pk}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        const typeColor = data.types[0].type.name;
+        pokemons.innerHTML += `
+          <li onclick="mostrarDetalle(${pk})" style="border-color: ${types[typeColor]}; background: linear-gradient(black, ${types[typeColor]})">
+            <h4>#${data.id}</h4>
+            <h5>${data.name}</h5>
+            <img src="${data.sprites.front_default}">
+          </li>`;
+      }
+    };
+
+    loadPokemon(1, 151);
+
+    // Transición entre secciones
+    const inicio = document.getElementById('inicio');
+    const lista = document.getElementById('lista');
+    const tarjeta = document.getElementById('tarjeta');
+    const btnPokemons = document.getElementById('btn-pokemons');
+    const btnVolver = document.getElementById('volver-lista');
+
+    btnPokemons.addEventListener('click', () => {
+      inicio.classList.add('hide');
+      setTimeout(() => lista.classList.remove('hide'), 500);
+    });
+
+    btnVolver.addEventListener('click', () => {
+      tarjeta.classList.add('hide');
+      setTimeout(() => lista.classList.remove('hide'), 500);
+    });
+
+    // Mostrar detalle del Pokémon
+    async function mostrarDetalle(id) {
+      lista.classList.add('hide');
+      setTimeout(() => tarjeta.classList.remove('hide'), 500);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const data = await response.json();
+
+      document.getElementById('pk-nombre').textContent = data.name;
+      document.getElementById('pk-id').textContent = data.id;
+      document.getElementById('pk-img').src = data.sprites.other["official-artwork"].front_default;
+      document.getElementById('pk-tipos').textContent = data.types.map(t => t.type.name).join(', ');
+      document.getElementById('pk-altura').textContent = (data.height / 10).toFixed(1);
+      document.getElementById('pk-peso').textContent = (data.weight / 10).toFixed(1);
+    }
+  </script>
+</body>
+</html>
