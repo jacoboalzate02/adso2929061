@@ -4,9 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>00 - Template</title>
+    <title>20- methods numbers</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+    section {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    button {
+        background-color: #b7a63c;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.6rem;
+        width: 160px;
+    }
+    input {
+        border: 2px solid #b7a63c;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        width: 140px;
+    }
+</style>
     
 </head>
 
@@ -22,12 +47,15 @@
     </nav>
     <main>
         <header>
-            <h1>00 - Template</h1>
+            <h1>20- methods numbers</h1>
             <h2>Description</h2>
 
         </header>
         <section>
-
+        <input type="number" class="num-float" placeholder="Enter a float number">
+        <button class="btn-calc">Calculate</button>
+        <ul class="output">
+        </ul>
         </section>
     </main>
 </body>
