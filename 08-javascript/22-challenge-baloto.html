@@ -165,58 +165,71 @@
             <h2 class="ball4">4</h2>
             <h2 class="ball5">5</h2>
             <h2 class="ball6">6</h2>
+
+            <p class="list"></p>
+
         </section>
     </main>
 
     <script>
-        // Elements
-        const btn = document.querySelector('.btn');
-        const ball1 = document.querySelector('.ball1');
-        const ball2 = document.querySelector('.ball2');
-        const ball3 = document.querySelector('.ball3');
-        const ball4 = document.querySelector('.ball4');
-        const ball5 = document.querySelector('.ball5');
-        const ball6 = document.querySelector('.ball6');
+    // Elements
+    const btn = document.querySelector('.btn');
+    const balls = [
+        document.querySelector('.ball1'),
+        document.querySelector('.ball2'),
+        document.querySelector('.ball3'),
+        document.querySelector('.ball4'),
+        document.querySelector('.ball5'),
+        document.querySelector('.ball6')
+    ];
 
-        // Funccion para generar el numero aleatorio
-        function getRandomNumber(min, max, element) {
-            let rand = Math.floor(Math.random() * (max - min)) + min;
-            let count = 0
-
-            const interval = setInterval(() => {
-                if (count == rand) {
-                    clearInterval(interval);
-                }
-                element.textContent = ++count;
-            }, 200);
+    // Generar N números únicos entre min y max
+    function generateUniqueNumbers(count, min, max) {
+        const numbers = new Set();
+        while (numbers.size < count) {
+            const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+            numbers.add(rand);
         }
+        return Array.from(numbers);
+    }
 
-        // Event listener for button click
-        btn.addEventListener('click', () => {
-            btn.disabled = true; // Disable button to prevent multiple clicks
-            btn.textContent = 'Cargando...';
-            getRandomNumber(0, 9, ball1);
-            getRandomNumber(0, 9, ball2);
-            getRandomNumber(0, 9, ball3);
-            getRandomNumber(0, 9, ball4);
-            getRandomNumber(0, 9, ball5);
-            getRandomNumber(0, 9, ball6);
+    // Animar cada bola con números aleatorios antes de mostrar el final
+    function animateBall(finalNumber, element) {
+        let intervalCount = 0;
+        const maxAnimations = 10; // Cuántos números falsos mostrar antes del real
 
-            setTimeout(() => {
-                // Check for jackpot
-                if (ball1.textContent === ball2.textContent && ball2.textContent === ball3.textContent && ball3.textContent === ball4.textContent) {
-                    alert('¡Felicidades! Has ganado el BaloToelli!');
-                }
-                else {
-                    alert('Lo siento, no has ganado el BaloToelli. Inténtalo de nuevo.');
-                }
-                btn.textContent = 'Play!'; // Reset button text
-                btn.disabled = false; // Re-enable button
-            }, 3000);
+        const interval = setInterval(() => {
+            element.textContent = Math.floor(Math.random() * 101); // mostrar valores aleatorios (0-100)
+            intervalCount++;
 
+            if (intervalCount >= maxAnimations) {
+                clearInterval(interval);
+                element.textContent = finalNumber; // Mostrar el número real
+            }
+        }, 100); // velocidad de animación
+    }
 
+    // Botón
+    btn.addEventListener('click', () => {
+        btn.disabled = true;
+        btn.textContent = 'Cargando...';
+
+        const uniqueNumbers = generateUniqueNumbers(6, 0, 100);
+
+        balls.forEach((ball, i) => {
+            animateBall(uniqueNumbers[i], ball);
         });
-    </script>
+
+        setTimeout(() => {
+            // No hay posibilidad de ganar con números únicos, pero dejamos esta parte
+            alert('Resultados listos. No has ganado el baloToelli');
+            btn.textContent = 'Play!';
+            btn.disabled = false;
+        }, 1500); // Espera total antes de reactivar el botón
+    });
+</script>
+
+
 </body>
 
 </html>
