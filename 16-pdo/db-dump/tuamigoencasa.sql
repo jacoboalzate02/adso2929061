@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2025 a las 23:04:43
+-- Tiempo de generación: 27-08-2025 a las 03:34:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -64,7 +64,8 @@ CREATE TABLE `pets` (
 
 INSERT INTO `pets` (`id`, `name`, `specie_id`, `breed_id`, `sex_id`, `photo`) VALUES
 (1, 'Firulais', 5, 1, 2, 'firulais.png'),
-(2, 'Michi', 6, 4, 1, 'michi.png');
+(2, 'Michi', 6, 4, 1, 'michi.png'),
+(4, 'Luna', 6, 4, 1, '1756250956.webp');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,7 @@ ALTER TABLE `breeds`
 -- AUTO_INCREMENT de la tabla `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sexes`

@@ -103,11 +103,55 @@ function addPet($name, $specie_id, $breed_id, $sex_id, $photo, $conx)
     try {
         $sql = "INSERT INTO pets (name, specie_id, breed_id, sex_id, photo) VALUES (:name, :specie_id, :breed_id, :sex_id, :photo)";
         $stmt = $conx->prepare($sql);
-        $stmt->bindparam(':name', $name);
-        $stmt->bindparam(':specie_id', $specie_id);
-        $stmt->bindparam(':breed_id', $breed_id);
-        $stmt->bindparam(':sex_id', $sex_id);
-        $stmt->bindparam(':photo', $photo);
+        $stmt->bindparam(":name", $name);
+        $stmt->bindparam(":specie_id", $specie_id);
+        $stmt->bindparam(":breed_id", $breed_id);
+        $stmt->bindparam(":sex_id", $sex_id);
+        $stmt->bindparam(":photo", $photo);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+//show pet
+function showPet($id, $conx)
+{
+    try {
+        $sql = "SELECT p.name AS name,
+                        p.photo AS photo,
+                        s.name AS specie,
+                        b.name AS breed,
+                        x.name AS sex                       
+                    FROM pets AS p,
+                        species AS s,
+                        breeds AS b,
+                        sexes AS x
+                    WHERE s.id = p.specie_id
+                    AND b.id = p.breed_id
+                    AND p.id = :id";
+        $stmt = $conx->prepare($sql);
+        $stmt->bindparam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch();
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
+//delete pet
+function deletePet($id, $conx)
+{
+    try {
+        $sql = "DELETE
+                FROM pets
+                WHERE id = :id";
+        $stmt = $conx->prepare($sql);
+        $stmt->bindparam(":id", $id);
         if ($stmt->execute()) {
             return true;
         } else {
@@ -117,46 +161,36 @@ function addPet($name, $specie_id, $breed_id, $sex_id, $photo, $conx)
         echo 'Error: ' . $e->getMessage();
     }
 }
-// Show pet
-function showPet($id, $conx)
+//para eliminar la foto se utiliza la fintion unlink
+function updatePet($id, $name, $specie_id, $breed_id, $sex_id, $photo, $conx)
 {
     try {
-        $sql = "SELECT  p.name AS name,
-                        p.photo AS photo,
-                        s.name AS specie,
-                        b.name AS breed,
-                        x.name AS sex
-                    FROM pets AS p,
-                        species AS s,
-                        breeds AS b
-                        sexes AS x
-                    WHERE s.id = p.specie_id
-                    AND b.id = p.breed_id
-                    AND p.id = :id";
+        $sql = "UPDATE pets SET name = :name, specie_id = :specie_id, breed_id = :breed_id, sex_id = :sex_id, photo = :photo WHERE id = :id";
         $stmt = $conx->prepare($sql);
         $stmt->bindparam(":id", $id);
-        return $stmt->fetch();
+        $stmt->bindparam(":name", $name);
+        $stmt->bindparam(":specie_id", $specie_id);
+        $stmt->bindparam(":breed_id", $breed_id);
+        $stmt->bindparam(":sex_id", $sex_id);
+        $stmt->bindparam(":photo", $photo);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+function getPetPhoto($id, $conx)
+{
+    try {
+        $sql = "SELECT photo FROM pets WHERE id = :id";
+        $stmt = $conx->prepare($sql);
+        $stmt->bindparam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
     }
 }
-
-    function deletePet($id, $conx) {
-        try {
-            $sql = "DELETE
-                    FROM pets
-                    WHERE id = :id";
-            $stmt = $conx->prepare($sql);
-            $stmt->bindparam(":id", $id);
-            if($stmt->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-            }
-            
-            
-        }
-    
