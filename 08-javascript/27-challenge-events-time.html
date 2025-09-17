@@ -8,30 +8,123 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        section {
-            text-align: center;
-            background: url(images/rectangle.png) no-repeat center;
-            height: 720px;
-            width: 428px;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            height: 100vh;
+            margin: 0;
         }
 
-        img.play {
+        /* Contenedor general */
+        .gameContainer {
+            position: relative;
+            width: 428px;
+            height: 640px;
+            border: 2px solid #000;
+            overflow: hidden;
+        }
+
+        /* --- PANTALLA DE INICIO --- */
+        #startScreen {
             position: absolute;
-            left: 34%;
-            top: 770px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/08-javascript/images/rectangle.png') no-repeat center;
+            background-size: cover;
+        }
+
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 200px;
+            background: url('/08-javascript/images/logo.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .instructions {
+            position: absolute;
+            top: 270px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 340px;
+            height: 110px;
+            background: url('/08-javascript/images/jugar.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .playBtn {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 70px;
+            background: url('/08-javascript/images/play.png') no-repeat center;
+            background-size: contain;
             cursor: pointer;
         }
 
-        img.logo{
+        /* --- PANTALLA DEL JUEGO --- */
+        #gameScreen {
             position: absolute;
-            left: 36%;
-            top: 230px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/08-javascript/images/rectangle2.png') no-repeat center;
+            background-size: cover;
+            display: none;
+            /* Se oculta al inicio */
         }
 
-        img.jugar{
+        /* Pez jugador */
+        .playerFish {
             position: absolute;
-            left: 35%;
-            top: 550px;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: url('/08-javascript/images/fish.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .shark1 {
+            position: absolute;
+            top: 20px;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            left: 40px;
+            background: url('/08-javascript/images/shark1.png') no-repeat center;
+        }
+
+        .shark2 {
+            position: absolute;
+            top: 20px;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background: url('/08-javascript/images/shark2.png') no-repeat center;
+            left: 164px;
+        }
+
+        /* centrado */
+        .shark3 {
+            position: absolute;
+            top: 20px;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background: url('/08-javascript/images/shark3.png') no-repeat center;
+            right: -10px;
         }
     </style>
 
@@ -53,15 +146,162 @@
             <h2>Create time-based interactive challenges</h2>
 
         </header>
-        <section>
-            <img src="images/play.png" alt="" class="play">
-            <img src="images/rectangle.png" alt="" class="Rectangle">
-            <img src="images/jugar.png" alt="" class="jugar">
-            <img src="images/logo.png" alt="" class="logo">
+        <div class="gameContainer">
+            <!-- Pantalla de inicio -->
+            <section id="startScreen">
+                <div class="logo"></div>
+                <div class="instructions"></div>
+                <div class="playBtn"></div>
+            </section>
 
-        </section>
+            <!-- Pantalla del juego -->
+            <section id="gameScreen">
+                <div class="playerFish"></div>
+                <div class="shark shark1"></div>
+                <div class="shark shark2"></div>
+                <div class="shark shark3"></div>
+            </section>
     </main>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const startScreen = document.getElementById("startScreen");
+            const gameScreen = document.getElementById("gameScreen");
+            const playBtn = document.querySelector(".playBtn");
+            const playerFish = document.querySelector(".playerFish");
+            const sharks = document.querySelectorAll(".shark");
+
+            let isGameRunning = false;
+            let playerPosition = 50;
+            let sharkSpeed = 3;
+            let gameLoop;
+
+            const lanes = [40, 160, 280];
+
+            // --- BOTÓN PLAY ---
+            playBtn.addEventListener("click", () => {
+                startScreen.style.display = "none";
+                gameScreen.style.display = "block";
+                isGameRunning = true;
+                startGame();
+            });
+
+            // --- MOVER EL PEZ ---
+            document.addEventListener("keydown", (event) => {
+                if (!isGameRunning) return;
+
+                if (event.key === "ArrowLeft") {
+                    playerPosition -= 5;
+                } else if (event.key === "ArrowRight") {
+                    playerPosition += 5;
+                }
+
+                if (playerPosition < 0) playerPosition = 0;
+                if (playerPosition > 90) playerPosition = 90;
+
+                playerFish.style.left = playerPosition + "%";
+            });
+
+            // --- INICIO DEL JUEGO ---
+            function startGame() {
+                resetSharks();
+                spawnSharks();
+                gameLoop = setInterval(updateGame, 30);
+            }
+
+            function resetSharks() {
+                sharks.forEach(shark => {
+                    shark.style.top = "-150px";
+                    shark.style.display = "none";
+                });
+            }
+
+            function updateGame() {
+                moveSharks();
+                checkCollision();
+            }
+
+            function moveSharks() {
+                sharks.forEach(shark => {
+                    if (shark.style.display === "block") {
+                        let top = parseInt(shark.style.top || "-150");
+                        top += sharkSpeed;
+
+                        if (top > 640) {
+                            // cuando salen de pantalla, reaparecen solo si hay menos de 2
+                            shark.style.display = "none";
+                            trySpawnShark(shark);
+                        } else {
+                            shark.style.top = top + "px";
+                        }
+                    }
+                });
+            }
+
+            // --- CREAR LOS PRIMEROS ---
+            function spawnSharks() {
+                let usedLanes = [];
+                sharks.forEach(shark => {
+                    trySpawnShark(shark, usedLanes);
+                });
+            }
+
+            // --- REAPARICIÓN DE UN TIBURÓN ---
+            function trySpawnShark(shark, usedLanes = []) {
+                const activeSharks = Array.from(sharks).filter(s => s.style.display === "block");
+
+                if (activeSharks.length >= 2) {
+                    // ya hay 2 en pantalla, este espera
+                    return;
+                }
+
+                let lane;
+                do {
+                    lane = lanes[Math.floor(Math.random() * lanes.length)];
+                } while (usedLanes.includes(lane) && usedLanes.length < lanes.length);
+
+                usedLanes.push(lane);
+
+                shark.style.left = lane + "px";
+                shark.style.top = "-150px";
+                shark.style.display = "block";
+            }
+
+            function checkCollision() {
+                const fishRect = playerFish.getBoundingClientRect();
+
+                sharks.forEach(shark => {
+                    if (shark.style.display === "block") {
+                        const sharkRect = shark.getBoundingClientRect();
+
+                        const shrink = 20; // recorta la caja de colisión
+                        const adjustedSharkRect = {
+                            left: sharkRect.left + shrink,
+                            right: sharkRect.right - shrink,
+                            top: sharkRect.top + shrink,
+                            bottom: sharkRect.bottom - shrink
+                        };
+
+                        if (
+                            fishRect.left < adjustedSharkRect.right &&
+                            fishRect.right > adjustedSharkRect.left &&
+                            fishRect.top < adjustedSharkRect.bottom &&
+                            fishRect.bottom > adjustedSharkRect.top
+                        ) {
+                            endGame();
+                        }
+                    }
+                });
+            }
+
+            function endGame() {
+                clearInterval(gameLoop);
+                isGameRunning = false;
+                alert("¡Perdiste! El tiburón te atrapó 🦈🐟");
+                startScreen.style.display = "block";
+                gameScreen.style.display = "none";
+            }
+        });
+
 
     </script>
 </body>
