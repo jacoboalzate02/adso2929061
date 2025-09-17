@@ -17,7 +17,6 @@
             margin: 0;
         }
 
-        /* Contenedor general */
         .gameContainer {
             position: relative;
             width: 428px;
@@ -26,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* --- PANTALLA DE INICIO --- */
         #startScreen {
             position: absolute;
             top: 0;
@@ -71,7 +69,6 @@
             cursor: pointer;
         }
 
-        /* --- PANTALLA DEL JUEGO --- */
         #gameScreen {
             position: absolute;
             top: 0;
@@ -81,10 +78,8 @@
             background: url('/08-javascript/images/rectangle2.png') no-repeat center;
             background-size: cover;
             display: none;
-            /* Se oculta al inicio */
         }
-
-        /* Pez jugador */
+    
         .playerFish {
             position: absolute;
             bottom: 40px;
@@ -116,7 +111,6 @@
             left: 164px;
         }
 
-        /* centrado */
         .shark3 {
             position: absolute;
             top: 20px;
@@ -147,14 +141,12 @@
 
         </header>
         <div class="gameContainer">
-            <!-- Pantalla de inicio -->
             <section id="startScreen">
                 <div class="logo"></div>
                 <div class="instructions"></div>
                 <div class="playBtn"></div>
             </section>
 
-            <!-- Pantalla del juego -->
             <section id="gameScreen">
                 <div class="playerFish"></div>
                 <div class="shark shark1"></div>
@@ -177,7 +169,6 @@
 
             const lanes = [40, 160, 280];
 
-            // --- BOTÓN PLAY ---
             playBtn.addEventListener("click", () => {
                 startScreen.style.display = "none";
                 gameScreen.style.display = "block";
@@ -185,7 +176,6 @@
                 startGame();
             });
 
-            // --- MOVER EL PEZ ---
             document.addEventListener("keydown", (event) => {
                 if (!isGameRunning) return;
 
@@ -201,7 +191,6 @@
                 playerFish.style.left = playerPosition + "%";
             });
 
-            // --- INICIO DEL JUEGO ---
             function startGame() {
                 resetSharks();
                 spawnSharks();
@@ -227,7 +216,6 @@
                         top += sharkSpeed;
 
                         if (top > 640) {
-                            // cuando salen de pantalla, reaparecen solo si hay menos de 2
                             shark.style.display = "none";
                             trySpawnShark(shark);
                         } else {
@@ -237,7 +225,6 @@
                 });
             }
 
-            // --- CREAR LOS PRIMEROS ---
             function spawnSharks() {
                 let usedLanes = [];
                 sharks.forEach(shark => {
@@ -245,12 +232,10 @@
                 });
             }
 
-            // --- REAPARICIÓN DE UN TIBURÓN ---
             function trySpawnShark(shark, usedLanes = []) {
                 const activeSharks = Array.from(sharks).filter(s => s.style.display === "block");
 
                 if (activeSharks.length >= 2) {
-                    // ya hay 2 en pantalla, este espera
                     return;
                 }
 
@@ -273,7 +258,7 @@
                     if (shark.style.display === "block") {
                         const sharkRect = shark.getBoundingClientRect();
 
-                        const shrink = 20; // recorta la caja de colisión
+                        const shrink = 20; 
                         const adjustedSharkRect = {
                             left: sharkRect.left + shrink,
                             right: sharkRect.right - shrink,
