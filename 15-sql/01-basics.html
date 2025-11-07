@@ -1,0 +1,30 @@
+-- Show Version MySql
+> mysql --version
+
+-- Access to MySQL Server
+> mysql -u root -p 
+
+-- Show All DataBases
+>> show databases;
+
+-- Create Database
+>> create database databasename;
+
+-- Use DataBases 
+>> use databasename;
+
+-- Conect Database
+>> connect databasename;
+
+-- Create table 
+>> create table gyms(
+    -> id int auto_increment,
+    -> name varchar(32) not null,
+    -> create_at timestamp,
+    -> primary key(id));
+
+-- Description table
+>> describe gyms;
+
+-- Show tables 
+>> show tables;
