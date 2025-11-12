@@ -1,30 +1,93 @@
--- Show Version MySql
-> mysql --version
+<!DOCTYPE html>
+<html lang="en">
 
--- Access to MySQL Server
-> mysql -u root -p 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Basics</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        main section {
+            h3{
+                color: #fff;
+            }
+            textarea {
+                background-color: #15316d;
+                border: none;
+                border-radius: 0.4rem;
+                outline: none;
+                padding: 0.4rem;
+                color: #fff;
+                width: 100%;
+                min-height: 32px;
+                font-size: 0.8rem;
+                resize: none;
+                field-sizing: content;
+            }
+        }
+    </style>
+    
+</head>
 
--- Show All DataBases
->> show databases;
+<body class="js">
+    <nav>
+        <a href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="#ffffff"
+                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                </path>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>01 - Basics</h1>
+            <h2>Description</h2>
 
--- Create Database
->> create database databasename;
-
--- Use DataBases 
->> use databasename;
-
--- Conect Database
->> connect databasename;
-
--- Create table 
->> create table gyms(
+        </header>
+        <section>
+            <h3>Show Version MySql</h3>
+            <textarea>mysql --version</textarea>
+            <h3>Access to MySQL Server</h3>
+            <textarea>mysql -u root -p</textarea>
+            <h3>Show All DataBases</h3>
+            <textarea>show databases;</textarea>
+            <h3>Create Database</h3>
+            <textarea>create database databasename;</textarea>
+            <h3>Use DataBases</h3>
+            <textarea>use databasename;</textarea>
+            <h3>Conect Database</h3>
+            <textarea>connect databasename;</textarea>
+            <h3>Create table</h3>
+            <textarea>create table gyms(
     -> id int auto_increment,
     -> name varchar(32) not null,
     -> create_at timestamp,
-    -> primary key(id));
-
--- Description table
->> describe gyms;
-
--- Show tables 
->> show tables;
+    -> primary key(id)
+);</textarea>
+            <h3>Create table (trainers):</h3>
+            <textarea> create table trainers(
+    -> id int auto_increment,
+    -> name varchar(32) not null unique,
+    -> level int not null,
+    -> gym_id int not null,
+    -> created_at timestamp,
+    -> primary key(id),
+    -> foreign key(gym_id) references gyms(id)
+);</textarea>
+            <h3>exit mysql</h3>
+            <textarea>exit</textarea>
+            <h3>Dump Data (Backup Database)</h3>
+            <textarea>mysqldump -u root pokeadso > backup.sql</textarea>
+            <h3>Drop Database</h3>
+            <textarea>Drop Database;</textarea>
+            <h3>Restore Database</h3>
+            <textarea>create database databasename
+>> exit
+> mysql -u root pokeadso < backup.sql
+            </textarea>
+        </section>
+    </main>
+</body>
+</html>

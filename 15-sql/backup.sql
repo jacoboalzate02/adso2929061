@@ -53,7 +53,7 @@ The following specify which files/extra groups are read (specified before remain
                       Obsolete option. Exists only for MySQL compatibility.
   -E, --vertical      Print the output of a query (rows) vertically.
   -f, --force         Continue even if we get an SQL error. Sets
-                      abort-source-on-error to 0
+                      abort-source-on-error to 0    
   -G, --named-commands 
                       Enable named commands. Named commands mean this program's
                       internal commands; see mysql> help . When enabled, the
