@@ -160,16 +160,16 @@ INSERT INTO pokemons VALUES ( DEFAULT, 'Rattata', 'Normal', 810, 60, 65, 22, 2, 
             <!--  -->
             <h3>SELECT CHALLENGES</h3>
             <small>List pokemons type water average speed </small>
-            <textarea>SELECT AVG(speed) AS average_water_speed FROM pokemons WHERE type = 'Water';</textarea>
+            <textarea>SELECT AVG(speed) AS average_speed FROM pokemons WHERE type = 'Water';</textarea>
             <!--  -->
             <small>List all pokemons with total sum all skills </small>
-            <textarea>SELECT name, (strenght + stamina + speed + accuracy) AS total_skills FROM pokemons</textarea>
+            <textarea>SELECT name, (strenght + stamina + speed + accuracy) AS all_skills FROM pokemons</textarea>
             <!--  -->
             <small>Sum all skills by type</small>
-            <textarea>SELECT tipo, SUM(strenght) AS total_strength FROM pokemons GROUP BY tipo;</textarea>
+            <textarea>SELECT tipo, SUM(strenght) AS total_skills FROM pokemons GROUP BY tipo;</textarea>
             <!--  -->
             <small>Count all pokemons type water</small>
-            <textarea> SELECT tipo, COUNT(id) AS water_pokemon_count FROM pokemons WHERE type = 'Water' GROUP BY tipo;</textarea>
+            <textarea> SELECT tipo, COUNT(id) AS water_pokemon FROM pokemons WHERE tipo = 'Water' GROUP BY tipo;</textarea>
             <!--  -->
             <h3>SELECT (ALIAS: Two Tables)</h3>
             <small>List all trainers with their pokemons</small>
@@ -219,7 +219,7 @@ INSERT INTO pokemons VALUES ( DEFAULT, 'Rattata', 'Normal', 810, 60, 65, 22, 2, 
             <small>One field</small>
             <textarea>UPDATE pokemons SET strenght=10000 where type='Grass';</textarea>
             <small>Two o more fields</small>
-            <textarea>UPDATE pokemons SET strenght = 50, stamina = 50 WHERE type = 'Rock';</textarea>
+            <textarea>UPDATE pokemons SET health = 50, stamina = 50 WHERE type = 'Rock';</textarea>
             <!--  -->
             <h3>DELETE</h3>
             <small>One row</small>
