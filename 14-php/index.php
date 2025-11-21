@@ -120,7 +120,7 @@
                 <span>24</span>
                 Date & Time
             </a>
-            <a href="25-challenge-dates.php">
+            <a href="25-challenge.php">
                 <span>25</span>
                 Challenge Dates
             </a>
