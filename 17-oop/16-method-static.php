@@ -1,12 +1,31 @@
 
-<?php 
-    $title       = '16- Method Static';
-    $description = 'A method called on the class itself, not on an instance.';
+<?php
+$title       = '16- Method Static';
+$description = 'A method called on the class itself, not on an instance.';
 
-    include 'template/header.php';
+include 'template/header.php';
 
-    echo "<section>";
+echo "<section>";
 
+class Car
+{
+    public $brand;
+    public $refer;
 
-    
-    include 'template/footer.php';
+    public static function showInfoCar($brand, $refer)
+    {
+        # Error: $this can not be used in static methods
+        # $this->brand = $brand;
+
+        return "<li> 
+                    <b>Brand: </b> {$brand} <br>
+                    <b>Reference: </b> {$refer}
+                </li>";
+    }
+}
+
+echo Car::showInfoCar('Aston Martin', 'DB9');
+echo Car::showInfoCar('Porshe', 'Carrera GT');
+echo Car::showInfoCar('Lamborgini', 'Gallardo');
+
+include 'template/footer.php';

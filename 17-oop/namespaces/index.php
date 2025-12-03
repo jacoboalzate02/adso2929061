@@ -1,12 +1,12 @@
+<?php 
 
-<?php
-$title       = '18- NameSpace';
-$description = 'Encapsulates items to avoid name conflicts between code.';
+$title       = '18- Namespace';
+$description = "Encapsulates items to avoid name conflicts between code.";
 
-include 'template/header.php';
+include_once '../template/header-l2.php';
 
 echo "<section>";
-
+					
 include 'electric/Pokemon.php';
 include 'fire/Pokemon.php';
 include 'water/Pokemon.php';
@@ -24,4 +24,7 @@ echo $pk->getInfoPokemon();
 $pk = new Pkw('Squirtle', 'Aqua');
 echo $pk->getInfoPokemon();
 
-include 'template/footer.php';
+
+include_once '../template/footer.php';
+
+ 

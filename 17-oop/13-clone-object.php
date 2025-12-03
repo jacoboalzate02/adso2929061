@@ -1,12 +1,32 @@
 
-<?php 
-    $title       = '13- Clone Object';
-    $description = 'Creating a new object as a copy of an existing one.';
+<?php
+$title       = '13- Clone Object';
+$description = 'Creating a new object as a copy of an existing one.';
 
-    include 'template/header.php';
+include 'template/header.php';
 
-    echo "<section>";
+echo "<section>";
 
+class Dragon
+{
+    private $name;
+    private $weight;
 
-    
-    include 'template/footer.php';
+    public function __construct($name, $weight)
+    {
+        $this->name   = $name;
+        $this->weight = $weight;
+    }
+
+    public function getInfoDragon()
+    {
+        return "<li> Dragon Name: {$this->name} <br>
+                     Weight: {$this->weight} kg </li>";
+    }
+}
+
+$dragon  = new Dragon("Spyro", 3000);
+$cloneDragon = clone($dragon); // Clone
+echo $cloneDragon->getInfoDragon();
+
+include 'template/footer.php';
