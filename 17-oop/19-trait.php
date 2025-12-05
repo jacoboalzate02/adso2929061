@@ -1,12 +1,39 @@
 
-<?php 
-    $title       = '19- Trait';
-    $description = 'A mechanism for code reuse in single inheritance languages.';
+<?php
+$title       = '19- Trait';
+$description = 'A mechanism for code reuse in single inheritance languages.';
 
-    include 'template/header.php';
+include 'template/header.php';
 
-    echo "<section>";
+echo "<section>";
+
+trait Hello
+{
+    public function showHello($name)
+    {
+        echo "<ul><li> <b>Welcome:</b> " . $name . "</li></ul>";
+    }
+}
+trait Adso
+{
+    public function showAdso($code)
+    {
+        echo "<ul><li> <b>Program:</b> " . $code . "</li></ul>";
+    }
+}
+class Department
+{
+    use Hello, Adso;
+    public function showDepartment($dep)
+    {
+        echo "<ul><li> <b>Department:</b> " . $dep . "</li></ul>";
+    }
+}
+
+$hl = new Department;
+$hl->showHello('Jeremias Springfield');
+$hl->showAdso(2929061);
+$hl->showDepartment('Caldas');
 
 
-    
-    include 'template/footer.php';
+include 'template/footer.php';

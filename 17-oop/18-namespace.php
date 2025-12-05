@@ -1,27 +1,3 @@
-
 <?php
-$title       = '18- NameSpace';
-$description = 'Encapsulates items to avoid name conflicts between code.';
-
-include 'template/header.php';
-
-echo "<section>";
-
-include 'electric/Pokemon.php';
-include 'fire/Pokemon.php';
-include 'water/Pokemon.php';
-
-use \electric\Pokemon as Pke;
-use \fire\Pokemon as Pkf;
-use \water\Pokemon as Pkw;
-
-$pk = new Pke('Pikachu', 'Yellow');
-echo $pk->getInfoPokemon();
-
-$pk = new Pkf('Charmander', 'Orange');
-echo $pk->getInfoPokemon();
-
-$pk = new Pkw('Squirtle', 'Aqua');
-echo $pk->getInfoPokemon();
-
-include 'template/footer.php';
+    header('Location: namespaces/');
+?>
