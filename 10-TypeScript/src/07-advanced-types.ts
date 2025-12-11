@@ -1,0 +1,17 @@
+// Types for attack results
+type AttackResult = "hit" | "miss" | "critical";
+   
+function performAttack(): AttackResult {
+    return "critical";
+}
+
+const result = performAttack();
+
+const output07 = document.getElementById('output07');
+
+if(output07) {
+    output07.innerHTML = `
+        <li><strong>Attack Result:</strong> ${result.toUpperCase()}</li>
+        
+    `;
+}
