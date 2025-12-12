@@ -11,4 +11,4 @@ if(output09) {
     <li><strong>Pi = </strong> ${PI}</li>
     <li><strong>32 + 32 =</strong> ${calc.multiply(8, 16)}</li>
     `;
-}
+} 
