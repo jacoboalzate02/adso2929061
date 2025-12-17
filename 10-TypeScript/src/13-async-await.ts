@@ -1,18 +1,22 @@
+interface PlayerData {
+    name: string;
+    goals: number;
+    assists: number;
+}
 
-
-
-
-
-
-
+const playerStats: PlayerData = {
+    name: "Raphinha",
+    goals: 45,
+    assists: 12
+};
 
 
 const output13 = document.getElementById('output13');
 
-if(output13) {
+if (output13) {
     output13.innerHTML = `
-     
-    <li><strong>Max Health:</strong> </li>
-    <li><strong>Powered YUp:</strong> </li>
+    <li><strong>Name:</strong> ${playerStats.name}</li>
+    <li><strong>Goals this season:</strong> ${playerStats.goals}</li>
+    <li><strong>Assists:</strong> ${playerStats.assists}</li>
     `;
 }
