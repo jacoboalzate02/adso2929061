@@ -39,5 +39,4 @@ class userSeeder extends Seeder
             'updated_at'=> now()
         ]);
     }
-
 }
