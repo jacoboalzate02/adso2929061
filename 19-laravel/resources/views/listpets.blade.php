@@ -29,9 +29,12 @@
           <td>{{ $pet->name }}</td>
           <td>{{ $pet->kind }}</td>
           <td>{{ $pet->breed }}</td>
-          <td></td>
+          <td>  </td>
+        
+        
+        
         </tr>
-        endforeach
+        @endforeach
       </tbody>
     </table>
   </div>
