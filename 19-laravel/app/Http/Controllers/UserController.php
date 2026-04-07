@@ -143,6 +143,6 @@ class UserController extends Controller
         if ($user->photo!= 'no-photo.png') && file_exists(public_path{
 
             
-        }
+        }   
     }
 }
