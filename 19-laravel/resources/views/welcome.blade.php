@@ -4,7 +4,9 @@
     <div class="bg-[#0009] w-[380px] flex flex-col justify-center text-white items-center p-4 rounded-sm">
         <img class="w-[240px]" src="{{ asset('images/logo.png') }}">
         <p>
-            Welcome to the best adoption page itw!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, excepturi pariatur voluptatibus facere
+            voluptatum dolores quibusdam molestiae ullam! Molestiae reprehenderit nulla explicabo adipisci nisi, porro nemo
+            aspernatur corporis laborum ipsam?
         </p>
 
         <div class="flex gap-2 justify-between mt-8">

@@ -19,7 +19,7 @@
             {{-- Module Users --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-users.webp') }}" />
+                    <img class="object-cover w-[300px]" src="{{ asset('images/bg-users.webp') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">
@@ -96,7 +96,7 @@
             {{-- Module Pets --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-pets.webp') }}" />
+                    <img class="object-cover w-[300px]" src="{{ asset('images/bg-pets.webp') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">
@@ -173,7 +173,7 @@
             {{-- Module Adoptions --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-adoptions.webp') }}" />
+                    <img class="object-cover w-[300px]" src="{{ asset('images/bg-adoptions.webp') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">
@@ -254,7 +254,7 @@
             {{-- Module My Profile --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-users.webp') }}" />
+                    <img class="object-cover" src="{{ asset('images/bg-users.jpeg') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">
@@ -280,7 +280,7 @@
             {{-- Module My Adoptions --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-pets.webp') }}" />
+                    <img class="object-cover" src="{{ asset('images/bg-pets.jpeg') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">
@@ -308,7 +308,7 @@
             {{-- Module Adoptions --}}
             <div class="card text-white bg-[#0006] w-96 shadow-sm">
                 <figure class="h-[240px]">
-                    <img class="object-cover" src="{{ asset('images/bg-adoptions.webp') }}" />
+                    <img class="object-cover" src="{{ asset('images/bg-adoptions.jpeg') }}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">

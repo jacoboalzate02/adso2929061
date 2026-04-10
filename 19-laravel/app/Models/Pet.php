@@ -23,7 +23,7 @@ class Pet extends Model
         'location',
         'description',
         'active',
-        'status'
+        'status',
     ];
 
     //Relationships
