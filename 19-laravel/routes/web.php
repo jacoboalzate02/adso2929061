@@ -98,7 +98,9 @@ Route::middleware('auth')->group(function() {
     Route::post('search/users',[UserController::class,'search']);
 
     Route::get('export/pets/pdf', [PetController::class, 'pdf']);
+    Route::get('export/pets/excel', [PetController::class, 'excel']);
     Route::post('search/pets', [PetController::class, 'search']);
+    Route::post('import/pets', [PetController::class, 'import']);
 });
 
 

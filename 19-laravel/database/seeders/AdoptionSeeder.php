@@ -10,29 +10,25 @@ use App\Models\Pet;
 
 class AdoptionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         $adopt = new Adoption;
-        $adopt->user_id =2;
-        $adopt->pet_id=2;
+        $adopt->user_id = 2;
+        $adopt->pet_id = 2;
 
-        if($adopt->save()){
+        if ($adopt->save()) {
             $pet = Pet::find($adopt->pet_id);
-            $pet->status = 1;
+            $pet->adopted = 1;   // ← ESTO estaba como $pet->status = 1
             $pet->save();
         }
 
         $adopt = new Adoption;
-        $adopt->user_id =2;
-        $adopt->pet_id=3;
+        $adopt->user_id = 2;
+        $adopt->pet_id = 3;
 
-        if($adopt->save()){
+        if ($adopt->save()) {
             $pet = Pet::find($adopt->pet_id);
-            $pet->status = 1;
+            $pet->adopted = 1;
             $pet->save();
         }
     }

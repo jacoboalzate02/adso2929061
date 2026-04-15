@@ -11,7 +11,7 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> --}}
     <script src={{asset('js/tailwindcss4.js')}}></script>
     <script src={{asset('js/jquery-3.7.1.min.js')}}></script>
-    <script src={{asset('js/sweetalert2@11.js')}}></script>
+    <script src={{asset('js/sweetalert@11.js')}}></script>
 </head>
 
 @auth

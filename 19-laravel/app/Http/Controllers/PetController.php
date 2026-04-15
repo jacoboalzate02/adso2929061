@@ -5,29 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PetsExport;
 
 class PetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $pets = Pet::orderBy('id', 'desc')->paginate(12);
         return view('pets.index')->with('pets', $pets);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('pets.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validation = $request->validate([
@@ -64,29 +57,20 @@ class PetController extends Controller
 
         if ($pet->save()) {
             return redirect('pets')
-                    ->with('message', 'The Pet: ' . $pet->name . ' was added successfully!');
+                ->with('message', 'The Pet: ' . $pet->name . ' was added successfully!');
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Pet $pet)
     {
         return view('pets.show')->with('pet', $pet);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Pet $pet)
     {
         return view('pets.edit')->with('pet', $pet);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Pet $pet)
     {
         $validation = $request->validate([
@@ -105,7 +89,6 @@ class PetController extends Controller
             if ($request->hasFile('image')) {
                 $image = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('images/pets'), $image);
-                // Delete old image
                 if ($request->originimage != 'no-photo.png' && file_exists(public_path('images/pets/' . $pet->image))) {
                     unlink(public_path('images/pets/' . $pet->image));
                 }
@@ -123,31 +106,25 @@ class PetController extends Controller
         $pet->description = $request->description;
         $pet->image       = $image;
         $pet->active      = $request->active;
+        $pet->adopted     = $request->adopted;
 
         if ($pet->save()) {
             return redirect('pets')
-                    ->with('message', 'The Pet: ' . $pet->name . ' was edited successfully!');
+                ->with('message', 'The Pet: ' . $pet->name . ' was edited successfully!');
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Pet $pet)
     {
         if ($pet->delete()) {
             if ($pet->image != 'no-photo.png' && file_exists(public_path('images/pets/' . $pet->image))) {
                 unlink(public_path('images/pets/' . $pet->image));
             }
-
             return redirect('pets')
-                    ->with('message', 'The Pet: ' . $pet->name . ' was deleted successfully!');
+                ->with('message', 'The Pet: ' . $pet->name . ' was deleted successfully!');
         }
     }
 
-    /**
-     * Generate a PDF file
-     */
     public function pdf()
     {
         $pets = Pet::all();
@@ -155,13 +132,21 @@ class PetController extends Controller
         return $pdf->download('allpets.pdf');
     }
 
+    public function excel()
+    {
+        return Excel::download(new PetsExport, 'allpets.xlsx');
+    }
 
-    /**
-     * Search pets
-     */
     public function search(Request $request)
     {
         $pets = Pet::names($request->q)->orderBy('id', 'desc')->paginate(12);
         return view('pets.search')->with('pets', $pets);
+    }
+
+    public function import(Request $request)
+    {
+    $file = $request->file('file');
+    Excel::import(new \App\Imports\PetsImport, $file);
+    return redirect()->back()->with('message', 'Pets imported successfully!');
     }
 }
