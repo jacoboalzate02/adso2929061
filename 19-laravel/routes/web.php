@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\AdoptionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -83,8 +84,8 @@ Route::get('view/pet/{id}',function(){
 Route::middleware('auth')->group(function() {
     Route::resources([
         'users'=> UserController::class,
-        'pets' => PetController::class
-        //'adoptions', AdoptionController::class
+        'pets' => PetController::class,
+        'adoptions' => AdoptionController::class,
     ]);
 
     //Exports
@@ -101,6 +102,9 @@ Route::middleware('auth')->group(function() {
     Route::get('export/pets/excel', [PetController::class, 'excel']);
     Route::post('search/pets', [PetController::class, 'search']);
     Route::post('import/pets', [PetController::class, 'import']);
+    Route::get('export/adoptions/pdf', [AdoptionController::class, 'pdf']);
+    Route::post('search/adoptions', [AdoptionController::class, 'search']);
+    Route::get('export/adoptions/excel', [AdoptionController::class, 'excel']);
 });
 
 
